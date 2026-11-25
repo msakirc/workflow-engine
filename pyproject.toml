@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "workflow_engine"
+version = "0.1.0"
+description = "Advances KutAI missions after each workflow step: artifact capture, finish gates, mission close."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Sakir Cimen" }]
+keywords = ["workflow-engine", "orchestration", "ai-agents", "kutai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Framework :: AsyncIO",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "dabidabi @ git+https://github.com/msakirc/dabidabi.git",
+    "general_beckman @ git+https://github.com/msakirc/general-beckman.git",  # back-edge (layering debt): advance enqueues — see tests/test_package_layering.py
+]
+
+[project.urls]
+Homepage = "https://github.com/msakirc/workflow-engine"
+Repository = "https://github.com/msakirc/workflow-engine"
+Monorepo = "https://github.com/msakirc/kutai/tree/main/packages/workflow_engine"
+
+[tool.setuptools.packages.find]
+where = ["src"]
